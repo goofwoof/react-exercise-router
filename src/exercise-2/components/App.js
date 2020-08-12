@@ -4,6 +4,7 @@ import {Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Self from './Self/Self';
 import Home from './Home/Home';
 import About from './About/About';
+import Products from './Products/Products'
 
 class App extends Component {
   constructor(props){
@@ -12,17 +13,19 @@ class App extends Component {
       id:1,
       name: "Home",
       url: "/",
-      component: acyncComponent(()=>{import('./Home/Home')})
     },{
       id:2,
-      name: "My Profile",
-      url: "/my-profile",
-      component: acyncComponent(()=>{import('./Self/Self')})
+      name: "Products",
+      url: "/Products",
+      
     },{
       id:3,
+      name: "My Profile",
+      url: "/my-profile",
+    },{
+      id:4,
       name: "About Us",
       url: "/about-us",
-      component: acyncComponent(()=>{import('./About/About')})
     }];
   }
 
@@ -38,8 +41,9 @@ class App extends Component {
         </div>
         <Switch>
           <Route exact path={this.Routers[0].url} component={Home}/>
-          <Route path={this.Routers[1].url} component={Self}/>
-          <Route path={this.Routers[2].url}  component={About}/>  
+          <Route path={this.Routers[1].url} component={Products}/>
+          <Route path={this.Routers[2].url}  component={Self}/> 
+          <Route path={this.Routers[3].url}  component={About}/> 
         </Switch>
       </BrowserRouter>
     </div>
@@ -47,13 +51,3 @@ class App extends Component {
 }
 
 export default App;
-/*{
-          this.Routers.map(router=>{
-            if(router.name === "Home"){
-              return <Route exact path={router.url} key={router.id} component={router.component}/>
-            }
-            else{
-              return <Route path={router.url} key={router.id} component={router.component}/>
-            }
-          })
-        }*/
