@@ -44,6 +44,8 @@ class App extends Component {
           <Route path={this.Routers[1].url} component={Products}/>
           <Route path={this.Routers[2].url}  component={Self}/> 
           <Route path={this.Routers[3].url}  component={About}/> 
+          <Route path='/goods'  component={Products}/> 
+          <Route path="*" component={Home} />
         </Switch>
       </BrowserRouter>
     </div>
